@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halloween Escape | Sri Panwa Phuket - Luxury Pool Villa Hotel & Private Residences</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Gotham Medium', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Header - Exact Sri Panwa Style */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 90px;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(15px);
+            z-index: 9999;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .header.scrolled {
+            height: 75px;
+            box-shadow: 0 2px 25px rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.99);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.9;
+        }
+
+        .logo-image {
+            height: 35px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover .logo-image {
+            filter: drop-shadow(0 0 8px rgba(243, 112, 33, 0.4));
+        }
+
+        /* Halloween Logo Glow Effect */
+        .logo-image {
+            animation: halloweenLogoGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes halloweenLogoGlow {
+            0% { 
+                filter: brightness(1) saturate(1);
+            }
+            50% { 
+                filter: brightness(1.1) saturate(1.2) drop-shadow(0 0 5px rgba(243, 112, 33, 0.3));
+            }
+            100% { 
+                filter: brightness(1) saturate(1);
+            }
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 35px;
+            font-family: 'Inter', 'Gotham Medium', sans-serif;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #000;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #f37021;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .book-now {
+            
+            background: #000;
+            color: #fff;
+            padding: 10px 25px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', 'Gotham Medium', sans-serif;
+        }
+
+        .book-now:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .language-flag {
+            width: 20px;
+            height: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .language-flag:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .language-flag.active {
+            opacity: 1;
+        }
+
+        /* Hero Section with Swiper */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide-1 {
+            background: linear-gradient(
+                rgba(0, 0, 0, 0.3),
+                rgba(26, 13, 46, 0.6),
+                rgba(0, 0, 0, 0.4)
+            ), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect width="1920" height="1080" fill="%231a0d2e"/><circle cx="960" cy="540" r="300" fill="%232d1b3d" opacity="0.3"/><circle cx="400" cy="300" r="150" fill="%23ff6b00" opacity="0.1"/></svg>');
+        }
+
+        .slide-2 {
+            background: linear-gradient(
+                rgba(0, 0, 0, 0.2),
+                rgba(45, 27, 61, 0.5),
+                rgba(0, 0, 0, 0.3)
+            ), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect width="1920" height="1080" fill="%232d1b3d"/><polygon points="0,1080 960,0 1920,1080" fill="%231a0d2e" opacity="0.5"/></svg>');
+        }
+
+        .slide-3 {
+            background: linear-gradient(
+                rgba(0, 0, 0, 0.4),
+                rgba(22, 33, 62, 0.6),
+                rgba(0, 0, 0, 0.3)
+            ), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect width="1920" height="1080" fill="%2316213e"/><path d="M0 540 Q480 200 960 540 T1920 540 L1920 1080 L0 1080 Z" fill="%231a0d2e" opacity="0.4"/></svg>');
+        }
+
+        .hero-content {
+            text-align: center;
+            color: #fff;
+            max-width: 900px;
+            padding: 0 60px;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            font-size: 14px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .hero-title {
+            font-size: 72px;
+            font-weight: 200;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 50px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 18px 40px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* Swiper Navigation */
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.4);
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #fff;
+            transform: scale(1.2);
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .swiper-button-prev:hover,
+        .swiper-button-next:hover {
+            color: #fff;
+        }
+
+        /* Halloween Promotion Strip */
+        .promo-strip {
+            background: #000;
+            color: #fff;
+            padding: 25px 0;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .promo-code {
+            color: #ff6b00;
+            font-weight: 500;
+            margin-left: 15px;
+        }
+
+        /* Main Content Sections */
+        .section {
+            padding: 120px 0;
+        }
+
+        .section-dark {
+            background: #f8f8f8;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .section-tagline {
+            font-size: 12px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 200;
+            color: #333;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-description {
+            font-size: 16px;
+            font-weight: 300;
+            color: #666;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Experience Grid */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            margin-top: 80px;
+        }
+
+        .experience-card {
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .experience-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #1a0d2e, #2d1b3d);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.4s ease;
+        }
+
+        .experience-card:hover .experience-image {
+            transform: scale(1.05);
+        }
+
+        .experience-title {
+            font-size: 18px;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .experience-text {
+            font-size: 14px;
+            font-weight: 300;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Villa Grid */
+        .villa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 50px;
+        }
+
+        .villa-card {
+            background: #fff;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #f0f0f0;
+        }
+
+        .villa-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .villa-image {
+            width: 100%;
+            height: 320px;
+            background: linear-gradient(45deg, #1a0d2e, #2d1b3d, #16213e);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 72px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .villa-content {
+            padding: 50px 40px;
+        }
+
+        .villa-title {
+            font-size: 24px;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 20px;
+            letter-spacing: -0.3px;
+        }
+
+        .villa-description {
+            font-size: 14px;
+            font-weight: 300;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .villa-features {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .villa-features li {
+            font-size: 13px;
+            color: #666;
+            font-weight: 300;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .villa-features li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #333;
+        }
+
+        .villa-price {
+            font-size: 20px;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .villa-button {
+            background: #000;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .villa-button:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: #000;
+            color: #fff;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .contact-content h2 {
+            font-size: 36px;
+            font-weight: 200;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-content p {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.7;
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+
+        .contact-details {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 2;
+        }
+
+        .contact-details strong {
+            font-weight: 400;
+            color: #fff;
+        }
+
+        /* Footer */
+        .footer {
+            background: #000;
+            color: #fff;
+            padding: 80px 0 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-section h4 {
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+
+        .footer-section a {
+            display: block;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 300;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 300;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-container { padding: 0 40px; }
+            .container { padding: 0 40px; }
+            .experience-grid { grid-template-columns: 1fr; gap: 40px; }
+            .villa-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; gap: 60px; }
+            .hero-title { font-size: 56px; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .nav-container { padding: 0 20px; }
+            .container { padding: 0 20px; }
+            .hero-title { font-size: 40px; }
+            .hero-content { padding: 0 20px; }
+            .section { padding: 80px 0; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        /* Halloween Glow Effects */
+        .glow-orange {
+            animation: glowOrange 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowOrange {
+            from { text-shadow: 0 0 20px rgba(255, 107, 0, 0.5); }
+            to { text-shadow: 0 0 30px rgba(255, 107, 0, 0.8), 0 0 40px rgba(255, 107, 0, 0.3); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="https://www.sripanwa.com/images/logo-s.svg" alt="Sri Panwa" class="logo-image">
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#suites" class="nav-link">suites & villa</a></li>
+                    <li class="nav-item"><a href="#dining" class="nav-link">baba dining</a></li>
+                    <li class="nav-item"><a href="#wellness" class="nav-link">wellness</a></li>
+                    <li class="nav-item"><a href="#gallery" class="nav-link">gallery</a></li>
+                    <li class="nav-item"><a href="#activities" class="nav-link">activities & day pass</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">villa for sale</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="language-selector">
+                    <img src="https://www.sripanwa.com/images/flag-en.png" alt="English" class="language-flag active">
+                    <img src="https://www.sripanwa.com/images/flag-th.png" alt="Thai" class="language-flag">
+                    <img src="https://www.sripanwa.com/images/flag-jp.png" alt="Japanese" class="language-flag">
+                    <img src="https://www.sripanwa.com/images/flag-cn.png" alt="Chinese" class="language-flag">
+                    <img src="https://www.sripanwa.com/images/flag-kr.png" alt="Korean" class="language-flag">
+                    <img src="https://www.sripanwa.com/images/flag-ru.png" alt="Russian" class="language-flag">
+                    <img src="https://www.sripanwa.com/images/flag-de.png" alt="German" class="language-flag">
+                    <img src="https://www.sripanwa.com/images/flag-nl.png" alt="Dutch" class="language-flag">
+                </div>
+                <a href="#book" class="book-now">book now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Swiper -->
+    <section class="hero">
+        <div class="swiper hero-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide slide-1">
+                    <div class="hero-content">
+                        <div class="hero-subtitle">Halloween Special</div>
+                        <h1 class="hero-title">Luxury Pool Villa Hotel<br>& Private Residences</h1>
+                        <p class="hero-description">Experience mystical luxury this Halloween season at Sri Panwa, where tropical paradise meets supernatural elegance on the pristine shores of Cape Panwa, Phuket.</p>
+                        <a href="#experiences" class="cta-button">discover experiences</a>
+                    </div>
+                </div>
+                <div class="swiper-slide slide-2">
+                    <div class="hero-content">
+                        <div class="hero-subtitle">The Habita</div>
+                        <h1 class="hero-title">Enchanted Oceanfront<br>Villa Collection</h1>
+                        <p class="hero-description">Indulge in our exclusive Halloween-themed experiences while enjoying unparalleled ocean views and world-class amenities at Thailand's premier luxury resort.</p>
+                        <a href="#suites" class="cta-button">explore villas</a>
+                    </div>
+                </div>
+                <div class="swiper-slide slide-3">
+                    <div class="hero-content">
+                        <div class="hero-subtitle">Yaya Complex</div>
+                        <h1 class="hero-title">Spellbinding Infinity<br>Pool Experiences</h1>
+                        <p class="hero-description">Immerse yourself in our award-winning infinity pools under the moonlight, complemented by mystical spa treatments and candlelit dining experiences.</p>
+                        <a href="#wellness" class="cta-button">book wellness</a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <!-- Halloween Promotion Strip -->
+    <div class="promo-strip">
+        Halloween Escape Package: Stay 3 nights, get 4th night free
+        <span class="promo-code glow-orange">Use Code: HALLOWEEN2024</span>
+    </div>
+
+    <!-- Welcome Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <div class="section-tagline">Welcome to Sri Panwa</div>
+                <h2 class="section-title">Mystical Experiences Await</h2>
+                <p class="section-description">Discover our curated collection of Halloween-inspired luxury experiences, thoughtfully designed to blend supernatural mystique with Sri Panwa's signature tropical elegance and breathtaking Andaman Sea views.</p>
+            </div>
+            
+            <div class="experience-grid">
+                <div class="experience-card fade-in-up">
+                    <div class="experience-image">🌙</div>
+                    <h3 class="experience-title">Moonlit Infinity Pool</h3>
+                    <p class="experience-text">Experience our award-winning infinity pools under the full moon with atmospheric lighting, signature Halloween cocktails, and panoramic views of the Andaman Sea stretching to the horizon.</p>
+                </div>
+                <div class="experience-card fade-in-up">
+                    <div class="experience-image">🕯️</div>
+                    <h3 class="experience-title">BABA Candlelit Dining</h3>
+                    <p class="experience-text">Savor exquisite Thai cuisine at our signature BABA restaurant, illuminated entirely by candlelight for Halloween, creating an intimate and mysterious dining atmosphere with ocean views.</p>
+                </div>
+                <div class="experience-card fade-in-up">
+                    <div class="experience-image">🌿</div>
+                    <h3 class="experience-title">Mystic Wellness Rituals</h3>
+                    <p class="experience-text">Indulge in special Halloween-themed wellness treatments using traditional Thai healing techniques combined with mystical aromatherapy blends and moon-charged crystal therapies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Suites & Villa Section -->
+    <section id="suites" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tagline">Suites & Villa</div>
+                <h2 class="section-title">Halloween Villa Collection</h2>
+                <p class="section-description">Choose from our collection of oceanfront pool villas, each featuring private infinity pools and unobstructed sea views, specially prepared for your Halloween escape with themed amenities and mystical touches.</p>
+            </div>
+
+            <div class="villa-grid">
+                <div class="villa-card fade-in-up">
+                    <div class="villa-image">🏖️</div>
+                    <div class="villa-content">
+                        <h3 class="villa-title">Two Bedroom Pool Villa</h3>
+                        <p class="villa-description">Spacious 280 sqm villa with private infinity pool, direct ocean access, and Halloween-themed welcome amenities including mystical turndown service and supernatural bath rituals.</p>
+                        <ul class="villa-features">
+                            <li>Private infinity pool overlooking Andaman Sea</li>
+                            <li>Two spacious bedrooms with ensuite bathrooms</li>
+                            <li>Halloween welcome amenities and decorations</li>
+                            <li>Dedicated villa host service</li>
+                            <li>Private outdoor dining pavilion</li>
+                            <li>Complimentary Halloween breakfast</li>
+                        </ul>
+                        <div class="villa-price">from thb 28,000 per night</div>
+                        <a href="#book" class="villa-button">reserve now</a>
+                    </div>
+                </div>
+
+                <div class="villa-card fade-in-up">
+                    <div class="villa-image">🌊</div>
+                    <div class="villa-content">
+                        <h3 class="villa-title">Penthouse Ocean Villa</h3>
+                        <p class="villa-description">Premium 350 sqm penthouse positioned for ultimate privacy and panoramic ocean views, enhanced with exclusive Halloween experiences and personalized mystical concierge services.</p>
+                        <ul class="villa-features">
+                            <li>270-degree ocean views from rooftop terrace</li>
+                            <li>Expansive private pool deck with jacuzzi</li>
+                            <li>Exclusive Halloween dinner on villa terrace</li>
+                            <li>Private yoga and meditation sessions</li>
+                            <li>Complimentary minibar with themed cocktails</li>
+                            <li>Butler service and private chef option</li>
+                        </ul>
+                        <div class="villa-price">from thb 42,000 per night</div>
+                        <a href="#book" class="villa-button">reserve now</a>
+                    </div>
+                </div>
+
+                <div class="villa-card fade-in-up">
+                    <div class="villa-image">⭐</div>
+                    <div class="villa-content">
+                        <h3 class="villa-title">Residence Pool Villa</h3>
+                        <p class="villa-description">Our most exclusive 500 sqm residence featuring unparalleled luxury, direct beach access, and comprehensive Halloween package with dedicated butler and mystical entertainment services.</p>
+                        <ul class="villa-features">
+                            <li>Direct private beach access and area</li>
+                            <li>Personal butler and private chef services</li>
+                            <li>Multi-level infinity pool with swim-up bar</li>
+                            <li>Complete Halloween entertainment package</li>
+                            <li>Helicopter transfers and yacht excursions</li>
+                            <li>24-hour room service and concierge</li>
+                        </ul>
+                        <div class="villa-price">from thb 65,000 per night</div>
+                        <a href="#book" class="villa-button">reserve now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-content">
+                    <h2>Plan Your Halloween Escape</h2>
+                    <p>Contact our reservations team to create your perfect mystical getaway. Our guest relations specialists will customize every detail of your supernatural luxury experience at Sri Panwa Phuket.</p>
+                    <div class="contact-details">
+                        <strong>Reservations</strong><br>
+                        reservations@sripanwa.com<br>
+                        +66 76 371 000<br><br>
+                        
+                        <strong>Sri Panwa Phuket</strong><br>
+                        88 Moo 8, Sakdidesh Road<br>
+                        Cape Panwa, Phuket 83000<br>
+                        Thailand
+                    </div>
+                </div>
+                <div>
+                    <a href="#book" class="villa-button" style="margin-right: 20px; margin-bottom: 20px; display: inline-block;">book direct</a>
+                    <a href="#gallery" class="villa-button" style="background: transparent; border: 1px solid #fff; color: #fff;">view gallery</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Suites & Villa</h4>
+                    <a href="#">Pool Suites</a>
+                    <a href="#">Penthouse Ocean</a>
+                    <a href="#">1 Bedroom Pool Villas</a>
+                    <a href="#">2 Bedroom Pool Villas</a>
+                    <a href="#">Residence Pool Villas</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Experiences</h4>
+                    <a href="#">BABA Dining</a>
+                    <a href="#">Wellness</a>
+                    <a href="#">Activities & Day Pass</a>
+                    <a href="#">Gallery</a>
+                    <a href="#">Halloween Specials</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <a href="#">Concierge</a>
+                    <a href="#">Transportation</a>
+                    <a href="#">Private Chef</a>
+                    <a href="#">Butler Service</a>
+                    <a href="#">Spa Treatments</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <a href="#">Reservations</a>
+                    <a href="#">Guest Relations</a>
+                    <a href="#">Villa for Sale</a>
+                    <a href="#">Media Center</a>
+                    <a href="#">Careers</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sri Panwa Phuket. All rights reserved. | Luxury Pool Villa Hotel & Private Residences</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    
+    <script>
+        // Initialize Swiper (Sri Panwa style)
+        const swiper = new Swiper('.hero-swiper', {
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            speed: 1000,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        // Header scroll effect (Sri Panwa style)
+        let lastScrollTop = 0;
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations (Sri Panwa style)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.experience-card, .villa-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Halloween glow effect toggle
+        setInterval(() => {
+            document.querySelectorAll('.glow-orange').forEach(element => {
+                element.style.opacity = element.style.opacity === '0.7' ? '1' : '0.7';
+            });
+        }, 2000);
+    </script>
+</body>
+</html>
